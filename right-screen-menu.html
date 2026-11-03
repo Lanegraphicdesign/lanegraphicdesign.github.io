@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+
+
+<head>
+    <title>Best, Lane</title> 
+    <link rel="stylesheet" href="style.css">  
+    <meta name="description" content="Menu of right screen, showcasing more personal or collaborative practices">
+
+<style>
+
+body {
+    background-image: url("img/elements/LaneWang_Background2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+.gallery {
+    column-count: 2;    
+    column-gap: 18px;
+    padding: 18px;
+}
+
+@media (max-width: 500px) {
+  .gallery {
+    column-count: 1;
+  }
+}
+
+.gallery-item {
+    break-inside: avoid;   
+    margin-bottom: 18px;    
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: auto !important; 
+    display: block;
+  }
+
+  .gallery-item .hover-img {
+    display: none;
+  }
+
+  .gallery-item:hover .primary-img {
+    display: none;
+  }
+
+  .gallery-item:hover .hover-img {
+    display: block;
+  }
+
+
+  
+</style>
+
+
+</head>
+<body>
+    <div class="gallery">
+        <a href="other-1.html" class="gallery-item">
+          <img src="img/otherwork/otherelements/LaneWang_Profile.png" alt="alt text">
+        </a>
+      
+        <a href="other-3.html" class="gallery-item">
+            <img src="img/otherwork/otherelements/LaneWang_Profile.png" alt="alt text">
+          </a>
+      
+          <a href="other-5.html" class="gallery-item">
+            <img src="img/otherwork/otherelements/LaneWang_Profile.png" alt="alt text">
+          </a>
+    
+          <a href="other-2.html" class="gallery-item">
+            <img src="img/otherwork/otherelements/LaneWang_Profile.png" alt="alt text">
+          </a>
+    
+          <a href="other-4.html" class="gallery-item">
+            <img src="img/otherwork/otherelements/LaneWang_Profile.png" alt="alt text">
+          </a>
+
+          <a href="other-6.html" class="gallery-item">
+            <img src="img/otherwork/otherelements/LaneWang_Profile.png" alt="alt text">
+          </a>
+
+      </div>
+
+      <footer class="footer-text">
+        © 2026 Lane Wang
+      </footer>
+      
+</body>
+</html>
+

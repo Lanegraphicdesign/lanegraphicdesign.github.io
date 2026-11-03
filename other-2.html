@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+
+
+<head>
+    <title>Best, Lane</title> 
+    <link rel="stylesheet" href="style.css">  
+    <meta name="description" content="Lane's collaborative graphic design practice that supports local art community">
+
+<style>
+
+body {
+    background-image: url("img/elements/LaneWang_Background2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 equal columns */
+    gap: 18px;
+    padding: 18px
+  }
+  
+  /* Responsive: 2 columns on tablet, 1 on mobile */
+  @media (max-width: 800px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 500px) {
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+
+.gallery-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    font-size: 24px;
+  }
+  
+  .gallery-item.full-width {
+  grid-column: 1 / -1;
+}
+
+  .gallery-item img {
+    width: 100%;
+    object-fit: cover; 
+    display: block;
+  }
+  
+  .gallery-item summary { 
+    font-size: 24px; 
+}
+
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 18px 0 18px;
+  gap: 16px;
+}
+
+.project-title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.3;
+  text-align: left;
+  max-width: 80%; 
+  word-break: break-word;
+}
+
+.back-to-menu {
+  flex-shrink: 0; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.back-to-menu img {
+  width: 60px;
+  object-fit: contain;
+  display: block;
+}
+
+.back-to-menu:hover {
+  opacity: 0.8;
+}
+
+</style>
+
+
+</head>
+<body>
+  <div class="project-header">
+    <h1 class="project-title">
+      <span style="font-weight:normal">My collaborative design practice</span><br>
+      <a href="https://cherrytomato.cargo.site" target="_blank" rel="noopener noreferrer">
+        <span style="font-weight: bold;">cherry tomato</span>
+      </a>
+    </h1>
+    
+    <a href="right-screen-menu.html" target="right-screen" class="back-to-menu" title="back to menu">
+      <img src="img/back.png" alt="back to menu">
+    </a>
+  </div>
+  
+
+  <div class="gallery">
+    <a href="#" class="gallery-item full-width"><img src="img/otherwork/cherrytomato/LaneWang_cherrytomato_1.png" alt="Our business card. Tear and assemble into a cherry tomato">
+    </a>
+
+    <div class="gallery-item full-width">
+        <p>I thrive in creative collaborations. With my creative partner Yongyi Zhu, cherry tomato is a practice where we develop ideas through conversations, supporting the local art and cultural scene. We stay true to the sprit of experimentation, and shape our designs around the specific needs of the subject matter.</p>
+    </div>
+
+        <div class="gallery-item">
+          <img src="img/otherwork/cherrytomato/LaneWang_cherrytomato_2.JPG" alt="The making of our card">
+        </div>
+
+        <div class="gallery-item">
+          <img src="img/otherwork/cherrytomato/LaneWang_cherrytomato_3.jpg" alt="Trimming exhibition invites designed for VCA Art honours">
+        </div>
+      
+        <div class="gallery-item">
+          <img src="img/otherwork/cherrytomato/LaneWang_cherrytomato_4.jpg" alt="Trimmed, folded and perforated invites designed for VCA Art honours exhibition Spurious Emissions">
+        </div>
+
+        <div class="gallery-item">
+          <img src="img/otherwork/cherrytomato/LaneWang_cherrytomato_5.jpg" alt="Poster design for VCA Art honours exhibition Spurious Emissions around the campus">
+        </div>
+
+        <div class="gallery-item">
+            <img src="img/otherwork/cherrytomato/LaneWang_cherrytomato_6.jpg" alt="Exhibition invite for VCA Art honours exhibition. The empty hand folded containers hold images of the artists' choosing and a mysterious message of the time and place of the exhibition">
+          </div>
+  
+          <div class="gallery-item">
+            <img src="img/otherwork/cherrytomato/LaneWang_cherrytomato_7.jpg" alt="Exhibition invite for VCA Art honours exhibition">
+          </div>
+        
+          <div class="gallery-item">
+            <img src="img/otherwork/cherrytomato/LaneWang_cherrytomato_8.jpg" alt="Exhibition social media post for VCA Art honours exhibition">
+          </div>
+        
+  
+          <div class="gallery-item">
+            <img src="img/otherwork/cherrytomato/LaneWang_cherrytomato_9.jpg" alt="Exhibition invite for VCA Art honours exhibition">
+          </div>
+
+      <footer class="footer-text">
+      </footer>
+      
+
+
+      <div id="image-modal" class="modal" onclick="closeModal()">
+        <img id="modal-img" src="" alt="Zoomed Image">
+        <p id="modal-caption"></p>
+      </div>
+
+
+</body>
+</html>
+
+<script>
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalCaption = document.getElementById('modal-caption');
+  const galleryItems = document.querySelectorAll('.gallery-item img');
+  
+  galleryItems.forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.preventDefault(); 
+      modal.style.display = 'flex'; 
+      modalImg.src = this.src;  
+      modalImg.alt = this.alt;  
+    
+      modalCaption.innerText = this.alt;  
+    });
+  });
+  
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+</script>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Lane's design folio, showcasing past work including publications and typographic experiments and more personal practice">
+<title>Best, Lane</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+<div class="navbar">
+    <div class="nav-left-item">
+      <button type="button" class="collapsible">about</button>
+      <div class="content">
+        <p>
+        <img src="img/otherwork/LaneWang_Logo.png" alt="Description of the image" class="wrap-image">
+        Hi, I'm Lane. I'm an interdisciplinary designer with a contemporary art background. As co-founder of art collective <i>wbxfangzb</i> (Hangzhou) and student-led graphic design studio <i>cherry tomato</i> (Melbourne), my practice is fundamentally collaborative and experimental. Deeply rooted in the cultural sector, I use a critical, content-driven approach to generate ideas and respond to subject matters big or small. I'm currently completing my Master of Design and Production (Graphic Design) at the Victorian College of the Arts, University of Melbourne.
+        </p>
+      </div>
+    </div>
+  
+    <a href="index.html" class="nav-middle-item" id="home-link">
+      <img src="img/home.svg" width="24" height="24" alt="Home">
+    </a>
+
+    <audio id="click-sound" src="img/LaneWang_Doorshut_01.mp3" preload="auto"></audio>
+
+    <div class="nav-right-item">
+      <button type="button" class="collapsible">contact</button>
+      <div class="content right-content">
+      <a href="mailto:lane.design@outlook.com?subject=Hello%20from%20your%20website">
+        <span style="font-weight: bold;">lane.design@outlook.com</span></a><br>
+        <a href="https://www.instagram.com/sidewalk9999" target="_blank" rel="noopener noreferrer">
+          <span style="font-weight: bold;">@sidewalk9999</span></a>
+      </div>
+    </div>
+  </div>
+
+
+<iframe class="split left" name="left-screen" src="left-screen.html" title="Left screen content"></iframe>
+<iframe class="split right" name="right-screen" src="right-screen.html" title="Right screen content"></iframe>
+
+
+
+
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function(e) {
+    e.stopPropagation(); 
+    
+    var isAlreadyActive = this.classList.contains("active");
+    closeAllMenus();
+
+    if (!isAlreadyActive) {
+      this.classList.add("active");
+      var content = this.nextElementSibling;
+      if (content) content.style.display = "block";
+    }
+  });
+}
+
+function closeAllMenus() {
+  var activeButtons = document.querySelectorAll('.collapsible.active');
+  activeButtons.forEach(function(button) {
+    button.classList.remove('active');
+    var content = button.nextElementSibling;
+    if (content) {
+      content.style.display = 'none';
+    }
+  });
+}
+
+document.addEventListener('click', function (event) {
+  var isClickInsideNavbar = event.target.closest('.navbar');
+  if (!isClickInsideNavbar) {
+    closeAllMenus();
+  }
+});
+
+window.addEventListener('blur', function() {
+  setTimeout(function() {
+    if (document.activeElement.tagName === 'IFRAME') {
+      closeAllMenus();
+    }
+  }, 100);
+});
+
+const homeLink = document.getElementById('home-link');
+const clickSound = document.getElementById('click-sound');
+
+homeLink.addEventListener('click', function(e) {
+  e.preventDefault();
+  clickSound.currentTime = 0;
+  clickSound.play();  
+
+  clickSound.onended = () => {
+    window.location.href = this.href;
+  };
+});
+
+  </script>
+
+</body>
+</html> 

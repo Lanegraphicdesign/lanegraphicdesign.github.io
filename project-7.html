@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+
+
+<head>
+    <title>Best, Lane</title> 
+    <link rel="stylesheet" href="style.css">  
+    <meta name="description" content="Lane's experimental publication offering a warm, nostalgic reading experience of an archival birdwatching manual through hand-woven pages and grainy images">
+
+
+<style>
+
+body {
+    background-image: url("img/elements/LaneWang_Background4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 3 equal columns */
+    gap: 18px;
+    padding: 18px
+  }
+  
+  /* Responsive: 2 columns on tablet, 1 on mobile */
+  @media (max-width: 800px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 500px) {
+    .gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+
+.gallery-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    font-size: 24px;
+  }
+  
+  .gallery-item.full-width {
+  grid-column: 1 / -1;
+}
+
+  .gallery-item img {
+    width: 100%;
+    object-fit: cover; 
+    display: block;
+  }
+  
+  .gallery-item summary { 
+    font-size: 24px; 
+}
+
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 18px 0 18px;
+  gap: 16px;
+}
+
+.project-title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.3;
+  text-align: left;
+  max-width: 80%; 
+  word-break: break-word;
+}
+
+.back-to-menu {
+  flex-shrink: 0; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.back-to-menu img {
+  width: 60px;
+  object-fit: contain;
+  display: block;
+}
+
+.back-to-menu:hover {
+  opacity: 0.8;
+}
+
+</style>
+
+
+</head>
+<body>
+  <div class="project-header">
+    <h1 class="project-title">
+      <span style="font-weight:normal">Experimental Publication</span><br>
+      <span style="font-weight: bold;">How To Have Bird Neighbors 2026 Edition</span>
+    </h1>
+    
+    <a href="left-screen-menu.html" target="left-screen" class="back-to-menu" title="back to menu">
+      <img src="img/back.png" alt="back to menu">
+    </a>
+  </div>
+
+    <div class="gallery">
+        <a href="#" class="gallery-item full-width"><img src="img/work/HowToHaveBirdNeighbours2026Edition/LaneWang_HowToHaveBirdNeighbours2026Edition_Web_GIF_2.gif" alt="Flipping the book">
+        </a>
+
+        <div class="gallery-item full-width">
+            <p>This handmade book is a revival of a bird watching manual originally published around 1900, digitised by the Gutenberg Project. Its positioning is quite the opposite of Fox Trapping 2025 Edition, all criticality is dissolved into the haziness and warmth in the multilayered, low-res photos taken by the author. Every page is hand-woven, inspired by the documentation of bird nesting and the presence of human gestures in the original narrative.</p>
+        </div>
+
+        <div class="gallery-item">
+          <img src="img/work/HowToHaveBirdNeighbours2026Edition/LaneWang_HowToHaveBirdNeighbours2026Edition_Web_optimised5.jpg" alt="Hand-woven page detail">
+        </div>
+
+        <div class="gallery-item">
+          <img src="img/work/HowToHaveBirdNeighbours2026Edition/LaneWang_HowToHaveBirdNeighbours2026Edition_Web_optimised3.jpg" alt="Hand-woven page detail">
+        </div>
+      
+        <div class="gallery-item">
+          <img src="img/work/HowToHaveBirdNeighbours2026Edition/LaneWang_HowToHaveBirdNeighbours2026Edition_Web_optimised7.jpg" alt="Hand-woven page detail">
+        </div>
+      
+
+      <footer class="footer-text">
+      </footer>
+      
+
+
+      <div id="image-modal" class="modal" onclick="closeModal()">
+        <img id="modal-img" src="" alt="Zoomed Image">
+        <p id="modal-caption"></p>
+      </div>
+
+
+</body>
+</html>
+
+<script>
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalCaption = document.getElementById('modal-caption');
+  const galleryItems = document.querySelectorAll('.gallery-item img');
+  
+  galleryItems.forEach(img => {
+    img.addEventListener('click', function(e) {
+      e.preventDefault(); 
+      modal.style.display = 'flex'; 
+      modalImg.src = this.src;  
+      modalImg.alt = this.alt;  
+    
+      modalCaption.innerText = this.alt;  
+    });
+  });
+  
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+</script>
